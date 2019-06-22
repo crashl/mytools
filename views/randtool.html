@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 30px;"></div>
+        <form class="layui-form" method="post" action="/randtool">
+            <div class="layui-form-item" pane="">
+                <label class="layui-form-label">选项</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="chk_upper" lay-filter="switchTest" lay-skin="switch" lay-text="大写ON|大写OFF"  checked="">
+                    <input type="checkbox" name="chk_lower" lay-filter="switchTest" lay-skin="switch" lay-text="小写ON|小写OFF" checked="">
+                    <input type="checkbox" name="chk_digtis" lay-filter="switchTest" lay-skin="switch" lay-text="数字ON|数字OFF" checked="">
+                    <input type="checkbox" name="chk_punc" lay-filter="switchTest" lay-skin="switch" lay-text="特殊ON|特殊OFF" >
+                </div>
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="rows" placeholder="条数，默认1" autocomplete="off" class="layui-input">
+                    <input type="text" name="lengths" placeholder="长度，默认16" autocomplete="off" class="layui-input ">
+                </div>
+            </div>
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">输出</label>
+                <div class="layui-input-block" style="width: 80%;">
+                    {{/*这里range不能换行，否则文本域会照用换行；*/}}
+                    {{/*&#13 做换行有效，<br/>无效*/}}
+                    <textarea name="outputpwd" class="layui-textarea">{{range $key, $val := .outputpwd}}{{$val}}&#13{{end}}</textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="/static/layui.js"></script>  <!--要先写这一行-->
+        <script>
+            //Demo
+            layui.use('form', function () {
+                var form = layui.form;
+
+                //监听指定开关
+                form.on('switch(switchTest)', function(data){
+                    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                        offset: '6px'
+                    });
+                });
+                //监听提交
+                form.on('submit(formDemo)', function (data) {
+                    layer.msg(JSON.stringify(data.field));
+                    return false;
+                });
+            });
+
+        </script>
+
+    </div>
+</html>
