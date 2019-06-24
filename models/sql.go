@@ -5,14 +5,13 @@ import (
 )
 
 type Soarconfig struct {
-	Id                  int
-	Cfgname             string
-	Cfgonline           string
-	Cfgtest          	string
-	Allowonlineastest	int8
-	Sampling      		int8
+	Id                int
+	Cfgname           string
+	Cfgonline         string
+	Cfgtest           string
+	Allowonlineastest int8
+	Sampling          int8
 }
-
 
 func SoarconfigGetList(page, pageSize int, filters ...interface{}) ([]*Soarconfig, int64) {
 	offset := (page - 1) * pageSize

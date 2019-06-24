@@ -8,7 +8,8 @@
 
             <div class="layui-tab-item layui-show">
                 <div class="layui-inline">
-                    <label class="layui-form-label">配置模板:</label>
+                    {{/*<label class="layui-form-label">配置模板:</label>*/}}
+                    配置模板:
                     <div class="layui-input-inline">
                         <select name="modules" lay-verify="required" lay-search="">
                             <option value="">默认配置</option>
@@ -16,13 +17,7 @@
                             <option value="2">配置2</option>
                         </select>
                     </div>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">SQL评估</button>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">美化</button>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">压缩</button>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">指纹</button>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">语法检查</button>
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">SQL改写</button>
-                    <button type="button" class="layui-btn layui-btn-danger layui-btn-sm">清空</button>
+
                     日志等级:
                     <select name="loglevel" lay-verify="required" lay-search="">
                         <option value="0">0:Emergency</option>
@@ -34,6 +29,13 @@
                         <option value="6">6:Informational</option>
                         <option value="7">7:Debug</option>
                     </select>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">SQL评估</button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">美化</button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">压缩</button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">指纹</button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">语法检查</button>
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-sm">SQL改写</button>
+                        <button type="button" class="layui-btn layui-btn-danger layui-btn-sm">清空</button>
                     <br><br>
                     <div class="layui-row">
                         <div class="layui-col-xs6">

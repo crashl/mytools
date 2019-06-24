@@ -22,7 +22,6 @@ func (c *SqlController) Post() {
 	c.TplName = "sql.html"
 }
 
-
 func (self *SqlController) Table() {
 	page, err := self.GetInt("page")
 	if err != nil {
@@ -30,9 +29,10 @@ func (self *SqlController) Table() {
 	}
 	limit, err := self.GetInt("limit")
 	if err != nil {
-		limit = 30
+		limit = 25
 	}
 	self.pagesize = limit
+	//beego.Info(self.pagesize)
 	id := strings.TrimSpace(self.GetString("id"))
 	//查询条件
 	filters := make([]interface{}, 0)
